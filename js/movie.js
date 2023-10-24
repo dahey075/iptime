@@ -24,6 +24,7 @@ let movieMap = new Map();
            <p class="star">할배점수 : ${element.vote_average}</p>
            <p class="overview">${element.overview}</p>
            </div>
+           <button>상세보기</button>
            </div>`;
             movieMap.set(element.title, card)
             div.appendChild(card)
