@@ -23,13 +23,10 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
            <h2 class="cardtitle">${element.title}</h2> 
            <p class="star">할배점수 : ${element.vote_average}</p>
            <p class="overview">${element.overview}</p>
-           <button id="detailsBtn">상세 보기</button>
-           </div>
-           <button>상세보기</button>
-           </div>`;
+           <button class="detailsBtn">상세 보기</button>`;
       movieMap.set(element.title, card)
       div.appendChild(card)
-    });
+    }); //title, overview, src
 
 
 
@@ -52,17 +49,22 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
 
     //상세페이지 이동 버튼
+    //여기 수정하면됨 이건 하나만 이잖아.
+    let btn = document.querySelectorAll('.detailsBtn');
+for (let i = 0; i < btn.length; i++) {
+  btn[i].addEventListener('click', function (event) {
+    // 현재 클릭된 버튼을 참조합니다.
+    let currentButton = event.currentTarget;
 
-    let btn = document.getElementById('detailsBtn');
-    btn.addEventListener('click', function (event) {
-      
-      // let id = card.id;
-      // window.location.href = `detail.html?id=${id}`;
+    // 현재 버튼을 사용하여 해당 카드 내부의 요소를 찾습니다.
+    let title = currentButton.parentElement.querySelector('.cardtitle').textContent;
+    let overView = encodeURIComponent(currentButton.parentElement.querySelector('.overview').textContent);
+    let src = currentButton.parentElement.querySelector('.card-img-top').getAttribute('src');
 
-      window.location.href = `detail.html`;
-
-    })
-
+    // 여기서 원하는 동작을 수행합니다.
+    window.location.href = `detail.html?image=${src}&title=${title}&intro=${overView}`;
+  });
+}
 
 
 
