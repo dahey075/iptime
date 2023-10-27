@@ -25,7 +25,6 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
            <p class="overview">${element.overview}</p>
            <button id="detailsBtn">상세 보기</button>
            </div>
-           <button>상세보기</button>
            </div>`;
       movieMap.set(element.title, card)
       div.appendChild(card)
