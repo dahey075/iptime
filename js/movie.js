@@ -23,10 +23,14 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
            <h2 class="cardtitle">${element.title}</h2> 
            <p class="star">할배점수 : ${element.vote_average}</p>
            <p class="overview">${element.overview}</p>
+<<<<<<< HEAD
            <button class="detailsBtn">상세 보기</button>
            </div>
            </div>`;
 
+=======
+           <button class="detailsBtn">상세 보기</button>`;
+>>>>>>> IJH
       movieMap.set(element.title, card)
       div.appendChild(card)
     }); //title, overview, src
