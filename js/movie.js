@@ -76,6 +76,13 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
           movieMap.get(cardtitle).style.display = 'none';
         }
       });
+
+
+      //영화 제목 입력 유효성 검사
+      if (text===""){
+        alert('영화 제목을 입력해 주세요.');
+      }
+
     }
 
     noOutlineImgButton.addEventListener('click', () => {
@@ -91,6 +98,8 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
 
     });
+
+    
 
 
     searchtxt.focus();
