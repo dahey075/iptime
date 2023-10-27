@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
             deleteButton.addEventListener("click", deleteComment);
         }
     }
+    //for 문과 if문을 이용해서 객체의 title이랑 같은 것은 가져온다
+    //예를 들어 movie.title == "theGodfather"
 
     function deleteComment(event) {
         const commentId = event.target.getAttribute("data-id");
