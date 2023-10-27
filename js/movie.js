@@ -23,7 +23,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
            <h2 class="cardtitle">${element.title}</h2> 
            <p class="star">할배점수 : ${element.vote_average}</p>
            <p class="overview">${element.overview}</p>
-           <button class="detailsBtn">상세 보기</button>
+           <button class="btn btn-outline-success" id="detailsBtn"  >상세 보기</button>
            </div>`;
 
       movieMap.set(element.title, card)
@@ -52,7 +52,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
     //상세페이지 이동 버튼
     //여기 수정하면됨 이건 하나만 이잖아.
-    let btn = document.querySelectorAll('.detailsBtn');
+    let btn = document.querySelectorAll('#detailsBtn');
 for (let i = 0; i < btn.length; i++) {
   btn[i].addEventListener('click', function (event) {
     // 현재 클릭된 버튼을 참조합니다.

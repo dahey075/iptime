@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const commentList = document.getElementById("commentList");
     const commentInput = document.getElementById("commentInput");
+    const authorInput = document.getElementById("authorInput");
     const commentButton = document.getElementById("commentButton");
 
     commentButton.addEventListener("click", addComment);
     commentInput.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             addComment();
-            
         }
     });
 
@@ -16,32 +16,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function addComment() {
         const commentText = commentInput.value;
-        if (commentText) {
+        const author = authorInput.value;
+
+        if (commentText && author) {
             const commentId = Date.now(); // 고유한 댓글 ID 생성
             const li = document.createElement("li");
             li.innerHTML = `
-                <span>${commentText}</span>
+                <span>${author}: ${commentText}</span>
                 <button class="deleteButton" data-id="${commentId}">삭제</button>
             `;
             commentList.appendChild(li);
 
             // 댓글을 로컬 스토리지에 저장
-            saveComment(commentId, commentText);
+            saveComment(commentId, author, commentText);
 
             commentInput.value = "";
+            authorInput.value = "";
 
             // 삭제 버튼에 이벤트 리스너 추가
             const deleteButton = li.querySelector(".deleteButton");
             deleteButton.addEventListener("click", deleteComment);
-        }  else {
-            // 댓글 내용 유효성 검사 추가 
-            alert("내용을 입력해 주세요.");
+        } else {
+            // 댓글 내용, 작성자 유효성 검사 추가
+            alert("댓글 내용과 작성자 이름을 입력해 주세요.");
         }
     }
 
-    function saveComment(commentId, commentText) {
+    function saveComment(commentId, author, commentText) {
         let comments = JSON.parse(localStorage.getItem("comments")) || [];
-        comments.push({ id: commentId, text: commentText });
+        comments.push({ id: commentId, author: author, text: commentText });
         localStorage.setItem("comments", JSON.stringify(comments));
     }
 
@@ -50,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (const comment of comments) {
             const li = document.createElement("li");
             li.innerHTML = `
-                <span>${comment.text}</span>
+                <span>${comment.author}: ${comment.text}</span>
                 <button class="deleteButton" data-id="${comment.id}">삭제</button>
             `;
             commentList.appendChild(li);
@@ -60,8 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
             deleteButton.addEventListener("click", deleteComment);
         }
     }
-    //for 문과 if문을 이용해서 객체의 title이랑 같은 것은 가져온다
-    //예를 들어 movie.title == "theGodfather"
 
     function deleteComment(event) {
         const commentId = event.target.getAttribute("data-id");
