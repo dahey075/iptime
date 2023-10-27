@@ -20,7 +20,6 @@ margin: 0px 0px 0px 0px;
 color: #fddaad;
 padding: 0px 15px 0px 15px;
 font-family: 'BMEULJIRO';
--webkit-text-stroke: 1px #285c5c;
 font-size: 20px;
 }
 
@@ -49,8 +48,7 @@ input.noOutlineImgButton{animation: rotate_image 6s linear infinite;transform-or
   width: 90%;
   margin: 0px 50px 0px 50px;
   font-family: 'BMEULJIRO';
-color: #285c5c;
--webkit-text-stroke: 1px #285c5c;
+  color: #398181;
 
 }
 
@@ -82,7 +80,7 @@ input[type='text'] {
 .card {
   background-color: #ffe5c2;
     width: 17em;
-    border-radius: 15px;
+    border-radius: 10px;
     margin: 1em;
     padding: 0.2em;
     padding-bottom: 1em;
@@ -96,13 +94,17 @@ input[type='text'] {
     width: 15em;
     height: 22em;
     overflow: auto;
-    margin-left: 1em;
+    margin-left: 0.8em;
     margin-top: 1em;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 0;
   }
 
 
+  .btn-outline-success{
+    width: 15em;
+    margin-left: 0.8em;
+  }
 
   
   .main-container{
@@ -115,7 +117,6 @@ input[type='text'] {
 .cardtitle{
   padding: 0px 15px;
   color: #398181;
-  -webkit-text-stroke: 0.3px  #285c5c;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
@@ -138,5 +139,3 @@ input[type='text'] {
     padding: 0px 15px;
     color: #398181;
   }
-
-  
