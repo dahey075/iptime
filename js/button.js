@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     commentInput.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             addComment();
+            
         }
     });
 
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // 삭제 버튼에 이벤트 리스너 추가
             const deleteButton = li.querySelector(".deleteButton");
             deleteButton.addEventListener("click", deleteComment);
+        }  else {
+            // 댓글 내용 유효성 검사 추가 
+            alert("내용을 입력해 주세요.");
         }
     }
 
